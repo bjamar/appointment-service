@@ -1,0 +1,45 @@
+AppointmentTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: AppointmentTable-${self:provider.stage}
+    BillingMode: PAY_PER_REQUEST
+    AttributeDefinitions:
+      - AttributeName: appointmentID
+        AttributeType: S
+      - AttributeName: uuid
+        AttributeType: S
+      - AttributeName: created
+        AttributeType: N
+      - AttributeName: session 
+        AttributeType: S
+      - AttributeName: apartmentID 
+        AttributeType: S
+    KeySchema: 
+      - AttributeName: appointmentID
+        KeyType: HASH
+    GlobalSecondaryIndexes: 
+      - IndexName: uuid_created
+        KeySchema: 
+          - AttributeName: uuid 
+            KeyType: HASH 
+          - AttributeName: created 
+            KeyType: RANGE 
+        Projection: 
+          ProjectionType: ALL  
+      - IndexName: session_created
+        KeySchema: 
+          - AttributeName: session 
+            KeyType: HASH 
+          - AttributeName: created 
+            KeyType: RANGE 
+        Projection: 
+          ProjectionType: ALL 
+      - IndexName: apartmentID_created
+        KeySchema: 
+          - AttributeName: apartmentID 
+            KeyType: HASH 
+          - AttributeName: created 
+            KeyType: RANGE 
+        Projection: 
+          ProjectionType: ALL 
+

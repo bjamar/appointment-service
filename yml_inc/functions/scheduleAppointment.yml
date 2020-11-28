@@ -1,0 +1,7 @@
+scheduleAppointment:
+    handler: src/handlers/scheduleAppointment.handler
+    events:
+      - http: 
+          method: POST
+          path: /scheduleappointment
+          private: true

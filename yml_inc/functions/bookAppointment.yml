@@ -1,0 +1,7 @@
+bookAppointment:
+    handler: src/handlers/bookAppointment.handler
+    events:
+      - http: 
+          method: POST
+          path: /bookappointment
+          private: true

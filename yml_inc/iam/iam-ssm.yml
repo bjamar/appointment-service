@@ -1,0 +1,6 @@
+IAMssm: 
+  Effect: 'Allow'
+  Action: 
+    - 'ssm:*'
+  Resource:
+    - '*' 
